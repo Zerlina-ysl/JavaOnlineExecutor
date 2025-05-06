@@ -1,4 +1,4 @@
-package code.olexecutor.executor.execute;
+package code.olexecutor.execute;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,7 +13,7 @@ public class HackInputStream extends InputStream {
       public final static ThreadLocal<InputStream> holdInputStream = new ThreadLocal<>();
 
       @Override
-      public void close() throws IOException {
+      public void close() {
             holdInputStream.remove();
       }
 
@@ -22,6 +22,7 @@ public class HackInputStream extends InputStream {
             // 无实际读取操作
             return 0;
       }
+
 
       public InputStream get() {
             return holdInputStream.get();
@@ -32,3 +33,5 @@ public class HackInputStream extends InputStream {
       }
 
 }
+
+

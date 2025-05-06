@@ -1,4 +1,4 @@
-package code.olexecutor.executor.service;
+package code.olexecutor.service;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
@@ -17,8 +17,8 @@ import javax.tools.JavaFileObject;
 
 import org.springframework.stereotype.Service;
 
-import code.olexecutor.executor.compile.StringSourceCompiler;
-import code.olexecutor.executor.execute.JavaClassExecutor;
+import code.olexecutor.compile.StringSourceCompiler;
+import code.olexecutor.execute.JavaClassExecutor;
 
 @Service
 public class ExecuteStringSourceService {
@@ -51,7 +51,7 @@ public class ExecuteStringSourceService {
                 compileErrRes.append(".");
                 compileErrRes.append(System.lineSeparator());
             }
-            return compileErrRes.toString();
+            return compileErrRes.toString();    
         }
         // 运行字节码的main方法
         Callable<String> runTask = new Callable<String>() {
@@ -75,7 +75,7 @@ public class ExecuteStringSourceService {
         } catch (InterruptedException e) {
             runResult = "program interrupted";
         } catch (ExecutionException e) {
-            runResult = e.getCause().getMessage();
+            runResult = e.toString();
         } catch (TimeoutException e) {
             runResult = "time limit exceeded";
         } finally {
