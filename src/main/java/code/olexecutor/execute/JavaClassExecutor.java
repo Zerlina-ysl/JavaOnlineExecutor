@@ -1,4 +1,4 @@
-package code.olexecutor.executor.execute;
+package code.olexecutor.execute;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -15,10 +15,10 @@ public class JavaClassExecutor {
         ClassModifier cm = new ClassModifier(classByte);
         // 对System和Scanner的调用被重定向到自定义的HackSystem和HackerScanner
         byte[] modifyBytes = cm.modifyUTF8Constant("java/lang/System",
-                "code/olexecutor/executor/execute/HackSystem");
-        modifyBytes = cm.modifyUTF8Constant("java/util/Scanner", "code/olexecutor/executor/execute/HackScanner");
+                "code/olexecutor/execute/HackSystem");
+        modifyBytes = cm.modifyUTF8Constant("java/util/Scanner", "code/olexecutor/execute/HackScanner");
 
-        ((HackInputStream) HackSystem.input).set(systemIn);
+        ((HackInputStream) HackSystem.in).set(systemIn);
 
         // 自定义类加载器
         HotSwapClassLoader classLoader = new HotSwapClassLoader();

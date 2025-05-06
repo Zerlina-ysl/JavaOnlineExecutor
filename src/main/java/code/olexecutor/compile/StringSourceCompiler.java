@@ -1,4 +1,4 @@
-package code.olexecutor.executor.compile;
+package code.olexecutor.compile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

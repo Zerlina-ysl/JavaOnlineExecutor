@@ -1,4 +1,4 @@
-package code.olexecutor.executor;
+package code.olexecutor;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-package code.olexecutor.executor.execute;
+package code.olexecutor.execute;
 
 class ClassModifier {
       // 常量池起始偏移
